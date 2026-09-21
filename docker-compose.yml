@@ -24,7 +24,6 @@ services:
     environment:
       SEARXNG_BASE_URL: http://127.0.0.1:8888/
       SEARXNG_LIMITER: "false"
-      FORCE_OWNERSHIP: "true"
     volumes:
       - ./searxng:/etc/searxng:rw
     cap_drop:
