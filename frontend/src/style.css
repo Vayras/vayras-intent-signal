@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --color-mist: #f0f2f5;
+  --color-ink: #12161c;
+  --color-slate: #6b7280;
+  --color-leaf: #14804a;
+  --color-leaf-2: #0c5c36;
+  --color-leaf-soft: #e7f5ee;
+  --color-line: #eef0f3;
+  --color-paper: #ffffff;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-mist);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.field {
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  border: 0;
+  background: var(--color-mist);
+  padding: 0 0.85rem;
+  color: var(--color-ink);
+  outline: none;
+}
+
+select.field {
+  appearance: none;
+  padding-right: 2.4rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%236B7280' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 12px 8px;
+}
+
+.field:focus {
+  box-shadow: 0 0 0 3px rgb(20 128 74 / 18%);
+}
+
+.card {
+  border-radius: 1.35rem;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(16 24 40 / 4%), 0 10px 28px rgb(16 24 40 / 4%);
+}
+
+.pill {
+  border-radius: 999px;
+  padding: 0.45rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}

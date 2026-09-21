@@ -1,0 +1,62 @@
+[
+  {
+    "url": "fixture://lumora-beauty",
+    "title": "Looking for Indian beauty creators — Lumora launch",
+    "snippet": "We are looking for Indian beauty creators for our upcoming launch. Need Mumbai and Bengaluru skincare voices.",
+    "platform": "reddit"
+  },
+  {
+    "url": "fixture://foldpay-ugc",
+    "title": "UGC creators wanted for UPI rewards app",
+    "snippet": "Need UGC creators for an upcoming campaign around our UPI rewards app.",
+    "platform": "forum"
+  },
+  {
+    "url": "fixture://nimbus-agency",
+    "title": "Looking for influencer marketing agency Delhi snacks",
+    "snippet": "Does anyone know a good influencer marketing agency for a snacks brand in Delhi?",
+    "platform": "x"
+  },
+  {
+    "url": "fixture://kala-ambassadors",
+    "title": "Brand ambassador programme handloom jackets",
+    "snippet": "Looking for brand ambassadors who can wear our handloom jackets through winter.",
+    "platform": "company_site"
+  },
+  {
+    "url": "fixture://veda-hiring",
+    "title": "Hiring influencer marketing manager Ayurveda",
+    "snippet": "Hiring someone to manage influencer marketing for our Ayurveda drops.",
+    "platform": "job_board"
+  },
+  {
+    "url": "fixture://orbit-launch",
+    "title": "Looking for creators to promote our app India launch",
+    "snippet": "Looking for creators to promote our app during the India launch next week.",
+    "platform": "news"
+  },
+  {
+    "url": "fixture://saffron-loom",
+    "title": "Need Indian jewellery influencers Jaipur",
+    "snippet": "Need Indian jewellery influencers who can shoot bridal sets in Jaipur this month.",
+    "platform": "forum"
+  },
+  {
+    "url": "fixture://pulp-recommend",
+    "title": "Recommend micro food creators Mumbai",
+    "snippet": "Does anyone know micro food creators in Mumbai for a juice brand collab?",
+    "platform": "reddit"
+  },
+  {
+    "url": "fixture://northstar-d2c",
+    "title": "Looking for influencers India sneakers D2C",
+    "snippet": "Northstar is looking for influencers in India for our sneaker drop next month.",
+    "platform": "forum"
+  },
+  {
+    "url": "fixture://generic-industry-piece",
+    "title": "Influencer marketing is growing in India",
+    "snippet": "Influencer marketing is growing. Our company works with influencers already.",
+    "platform": "news"
+  }
+]
