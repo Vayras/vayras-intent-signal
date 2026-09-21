@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     scan_result_limit: int = 12
     scan_query_limit: int = 250
     crawl_delay_seconds: float = 0.4
-    search_delay_seconds: float = 2.0
+    search_delay_seconds: float = 30.0
     scan_interval_minutes: int = 240
     reddit_subreddits: str = "influencermarketing,IndianStartups,india,Entrepreneur,smallbusiness,marketing,startups,DTC"
     reddit_watch_minutes: int = 15
