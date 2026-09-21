@@ -21,3 +21,16 @@ search:
 
 outgoing:
   request_timeout: 8.0
+
+# Brave/DuckDuckGo/Google block scraping from datacenter IPs almost immediately.
+# These are disabled by default but not yet blocked here; boardreader is a
+# dedicated public-forum search engine.
+engines:
+  - name: bing
+    disabled: false
+  - name: yandex
+    disabled: false
+  - name: qwant
+    disabled: false
+  - name: boardreader
+    disabled: false
