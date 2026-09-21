@@ -209,12 +209,12 @@ onUnmounted(() => {
       <RouterLink to="/scan" class="pill bg-ink text-white">Scan now</RouterLink>
     </div>
 
-    <form class="card grid gap-2 p-3 sm:grid-cols-4 lg:grid-cols-8" @change="load">
+    <form class="card grid gap-2 p-3 sm:grid-cols-4 lg:grid-cols-8" @change="load()">
       <input
         v-model="filters.q"
         class="field sm:col-span-2"
         placeholder="Search company or evidence"
-        @keydown.enter.prevent="load"
+        @keydown.enter.prevent="load()"
       />
       <select v-model="filters.intent_type" class="field">
         <option value="">Intent type</option>
