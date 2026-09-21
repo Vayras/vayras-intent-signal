@@ -19,6 +19,8 @@ class Settings(BaseSettings):
     openai_api_key: str = ""
     openai_model: str = "gpt-4o-mini"
     openai_url: str = "https://api.openai.com/v1"
+    google_api_key: str = ""
+    google_cse_id: str = ""
     musespark_api_key: str = Field(default="", validation_alias=AliasChoices("MUSESPARK_API_KEY", "MODEL_API_KEY"))
     musespark_model: str = "muse-spark-1.2"
     musespark_url: str = "https://api.meta.ai/v1"

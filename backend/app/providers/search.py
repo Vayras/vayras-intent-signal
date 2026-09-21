@@ -108,6 +108,54 @@ class FixtureSearchProvider(SearchProvider):
         return True, f"{len(self._index)} fixture pages on disk"
 
 
+class GoogleCseSearchProvider(SearchProvider):
+    """Official Google Custom Search JSON API. Free tier: 100 queries/day."""
+
+    name = "GoogleCSE"
+
+    def __init__(self, api_key: str, cx: str):
+        self.api_key = api_key
+        self.cx = cx
+
+    def search(self, query: str, limit: int = 8, **_kwargs) -> list[SearchHit]:
+        with httpx.Client(timeout=10.0) as client:
+            response = client.get(
+                "https://www.googleapis.com/customsearch/v1",
+                params={"key": self.api_key, "cx": self.cx, "q": query, "num": min(limit, 10)},
+            )
+            response.raise_for_status()
+            payload = response.json()
+        hits: list[SearchHit] = []
+        for item in payload.get("items", [])[:limit]:
+            url = item.get("link") or ""
+            if not url.startswith("http"):
+                continue
+            hits.append(
+                SearchHit(
+                    url=url,
+                    title=item.get("title") or url,
+                    snippet=item.get("snippet") or "",
+                    platform=platform_from_url(url),
+                )
+            )
+        return hits
+
+    def status(self) -> tuple[bool, str]:
+        if not self.api_key or not self.cx:
+            return False, "GOOGLE_API_KEY / GOOGLE_CSE_ID not set"
+        try:
+            with httpx.Client(timeout=5.0) as client:
+                response = client.get(
+                    "https://www.googleapis.com/customsearch/v1",
+                    params={"key": self.api_key, "cx": self.cx, "q": "test", "num": 1},
+                )
+            if response.status_code >= 400:
+                return False, f"customsearch.googleapis.com ({response.status_code}: {response.text[:120]})"
+            return True, "customsearch.googleapis.com"
+        except Exception as exc:
+            return False, str(exc)
+
+
 class CompositeSearchProvider(SearchProvider):
     name = "CompositeSearch"
 
@@ -144,6 +192,8 @@ def get_search_provider() -> SearchProvider:
     providers: list[SearchProvider] = []
     if settings.searxng_url:
         providers.append(SearxngSearchProvider(settings.searxng_url))
+    if settings.google_api_key and settings.google_cse_id:
+        providers.append(GoogleCseSearchProvider(settings.google_api_key, settings.google_cse_id))
     if settings.demo_mode or not providers:
         if settings.demo_mode:
             providers.append(FixtureSearchProvider())
