@@ -137,7 +137,9 @@ def test_reddit_json_keeps_post_and_comments():
 
 
 def test_searx_categories():
-    assert searx_categories('"looking for creators" site:reddit.com') == "social media"
+    # SearXNG has no Reddit/Instagram/LinkedIn/X engine; "social media" is Lemmy/Mastodon
+    # only, so site: queries for those platforms must go through "general" instead.
+    assert searx_categories('"looking for creators" site:reddit.com') == "general"
     assert searx_categories('"product launch" influencers India') == "news"
     assert searx_categories('"looking for influencers" India') == "general"
 

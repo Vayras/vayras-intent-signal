@@ -308,6 +308,7 @@ def _run_search(job_id: int) -> None:
     finally:
         db.close()
     try:
+        time.sleep(settings.search_delay_seconds)
         search = get_search_provider()
         hits = search.search(query, limit=settings.scan_result_limit, categories=searx_categories(query))
         if hits:

@@ -74,6 +74,7 @@ def run_scan(db: Session, job: ScanJob) -> ScanJob:
         for query in queries:
             if pages >= settings.scan_max_pages:
                 break
+            time.sleep(settings.search_delay_seconds)
             for hit in search.search(
                 query, limit=settings.scan_result_limit, categories=searx_categories(query)
             ):

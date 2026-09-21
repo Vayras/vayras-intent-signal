@@ -153,9 +153,10 @@ def get_search_provider() -> SearchProvider:
 
 
 def searx_categories(query: str) -> str:
+    # ponytail: SearXNG's "social media" category is Lemmy/Mastodon/Tootfinder only —
+    # no Reddit/Instagram/LinkedIn/X engine exists, so site: queries for those belong
+    # in "general" where the real web engines (brave/duckduckgo/google) actually run.
     lower = query.lower()
-    if any(token in lower for token in ("site:reddit", "site:instagram", "site:facebook", "site:linkedin", "site:x.com")):
-        return "social media"
     if any(token in lower for token in ("product launch", "new launch", "press", "yourstory", "inc42")):
         return "news"
     return "general"
